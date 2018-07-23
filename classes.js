@@ -5,7 +5,7 @@ class Animal {
   }
 
   speak() {
-    console.log("Hi, I'm " + this.name + " and I'm " + this.color)
+    console.log(`Hi I'm ${this.name} and I'm ${this.color}`);
   }
 }
 

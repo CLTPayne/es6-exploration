@@ -17,3 +17,14 @@ function func() {
   }
   console.log(tmp);
 }
+
+// Shadow variables (is possible to thanks to block scoping)
+
+function func() {
+  let foo = 5;
+  if (true) {
+    let foo = 10;
+    console.log(foo);
+  }
+  console.log(foo);
+}

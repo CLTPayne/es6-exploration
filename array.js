@@ -32,11 +32,11 @@ let removeFirstItem = fruits.shift();
 let addFirstItem = fruits.unshift('Blueberry');
 
 // find index of an array item:
-let position = fruits.indexOf('Blueberry');
+let pos = fruits.indexOf('Blueberry');
 
 // remove a single item from an index position:
 // the second parameter is the number of items to be removed
-let removeItem = fruits.splice(position, 1);
+let removeItem = fruits.splice(pos, 1);
 
 // remove more than one item from an index position:
 let vegetables = ['Cabbage', 'Kale', 'Mushrooms', 'Onions'];

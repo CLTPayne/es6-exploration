@@ -55,3 +55,8 @@ let removedItems = vegetables.splice(position, n);
 // make a copy of an array:
 let shallowCopy = vegetables.slice();
 // now shallowCopy and vegetables hold the same elements in an array
+
+// constructing an empty array structure:
+new Array(5)
+// the arguement passed to the Array constructor is a number, it creates an array with empty slots
+// return value of the above is: (5) [empty × 5]

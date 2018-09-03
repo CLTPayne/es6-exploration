@@ -55,6 +55,7 @@ let removedItems = vegetables.splice(position, n);
 // make a copy of an array:
 let shallowCopy = vegetables.slice();
 // now shallowCopy and vegetables hold the same elements in an array
+// in general slice extracts a section of an array and returns a new array (when given parameters to indicate the indexs to extract)
 
 // constructing an empty array structure:
 new Array(5)

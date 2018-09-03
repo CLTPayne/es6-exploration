@@ -48,3 +48,45 @@ let sum = [{x: 1}, {x: 2}, {x:3}].reduce(
 );
 
 console.log(sum); // returns 6
+
+// FURTHER ARRAY.REDUCE EXAMPLES
+
+// counting instances of a value in an object:
+// returning an object as the accumulated result of the reduce
+let names = ['John', 'Jen', 'Jez', 'John', 'John'];
+
+let countedNames = names.reduce(function(allNames, name) {
+  if (name in allNames) {
+    allNames[name]++;
+  }
+  else {
+    allNames[name] = 1;
+  }
+  return allNames;
+}, {});
+// countedNames = {John: 3, Jen: 1, Jez: 1}
+
+// grouping objects by property:
+let people = [
+  { name: 'Jonty', age: 30 },
+  { name: 'Jamima', age: 29 },
+  { name: 'Jilly', age: 32 }
+];
+
+function groupBy(objectArray, property) {
+  return objectArray.reduce(function (accumulator, object) {
+    let key = object[property];
+    if (!accumulator[key]) {
+      accumulator[key] = [];
+    }
+    accumulator[key].push(object);
+    return accumulator;
+  }, {});
+};
+
+let groupedPeople = groupBy(people, 'age');
+// groupedPeople = {
+//   29: [{ name: 'Jamima', age: 29 }],
+//   30: [{ name: 'Jonty', age: 30 }],
+//   32: [{ name: 'Jilly', age: 32 }] 
+// }

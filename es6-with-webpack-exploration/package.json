@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -13,5 +13,8 @@
   "devDependencies": {
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^3.1.8"
   }
 }

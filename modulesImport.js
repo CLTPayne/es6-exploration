@@ -1,3 +1,3 @@
-import { people, total } from './modulesExport';
+import multiply from './modulesExport';
 
-console.log(people, total);
+console.log(multiply(3, 10));

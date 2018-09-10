@@ -1,11 +1,12 @@
-let a = 'hello';
-console.log(a);
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-{
-  let a = "goodbye";
-  console.log('a inside scope', a);
+class App extends Component {
+  render() {
+    return (
+      <div>React is working with JSX</div>
+    )
+  }
 }
 
-const array = [1, 2, 3];
-array.push(4);
-console.log(array);
+ReactDOM.render(<App />, document.getElementById('root'))

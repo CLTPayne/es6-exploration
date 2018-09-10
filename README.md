@@ -10,4 +10,6 @@ $ cd es6-exploration
 $ node classes.js
 ```
 
-Each file can be run with the node interpetation via the commandline (as per example above),
+Each file can be run with the node interpetation via the commandline (as per example above).
+
+For babel, webpack and JSX exploration ```cd es6-with-webpack-exploration```. 

@@ -24,6 +24,42 @@ let promise = new Promise(function(resolve, reject) {
   // resolve(value) - sets state as fullfilled and result as value
   // reject(error) - sets state to rejected and result to error
 
+
+// You can create a promise with it's constructor
+
+// Simple example:
+
+function delay(t) {
+  return new Promise((resolve, reject) => {
+    console.log("Hello");
+    setTimeout(() => resolve(), t)
+  })
+}
+
+function logName(name) {
+  console.log(name);
+}
+
+delay(5000).then(logName('Ben')) // returns Hello [pause] Ben
+// Without the resolve being passed into the delay fuction you wouldn't get the next function call
+
+// You can also resolve with a value:
+
+function delay(t) {
+  return new Promise((resolve, reject) => {
+    console.log("Hello");
+    setTimeout(() => resolve('Oi'), t)
+  })
+}
+
+function logName(value, name) {
+  console.log(value + " " + name + "!");
+}
+
+delay(2000).then((value) => {
+   logName(value, "James")
+ })
+
 // the following has the setTimeout as the producing code function:
 
 let promise = new Promise(function(resolve, reject) {

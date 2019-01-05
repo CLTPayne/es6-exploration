@@ -1,26 +1,25 @@
 // String method:
 
 const stringFinder = (string) => {
-  return 'Merry Christmas and a Happy New Year'.includes(string);
+  return 'So happy that I started coding'.includes(string);
 };
 
-console.log(stringFinder('Happy')); // true
+console.log(stringFinder('happy')); // true
 
 // Array method:
 
-reindeer = [
-  'Dasher',
-  'Dancer',
-  'Prancer',
-  'Vixen',
-  'Comet',
-  'Cupid',
-  'Donner',
-  'Blitzen'
+languages = [
+  'Ruby',
+  'Clojure',
+  'Erlang',
+  'Java',
+  'Python',
+  'C++',
+  'JavaScript'
 ]
 
 const arrayElementFinder = (string) => {
-  return reindeer.includes(string)
+  return languages.includes(string)
 }
 
-console.log(arrayElementFinder('Rudolph')) // false
+console.log(arrayElementFinder('English')) // false

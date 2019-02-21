@@ -9,13 +9,13 @@ module.exports = {
   devServer: {
     port: 3000,
     contentBase: path.resolve(__dirname, 'build')
-  },
+  }
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
+        exclude: /node_modules/
+        use: ['babel']
       }
     ]
   }

@@ -58,4 +58,36 @@ console.timeEnd('Variable Reassignment Calculation')
 // Just reasign the slot in memory. Is that not how memory works. 
 
 // Attempt 3:
+// Refactor prime number calculator as outputting a string is wasteful?
+const outputPrimeNumber = number => {
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+            return null
+        }
+    }
+    return number
+}
+
+// console.log(outputPrimeNumber(11))
+
+const findNthPrimeNumberViaSimplifiedPrimeNumberFunction = n => {
+    const primeNumbers = []
+    for (let i = 2; primeNumbers.length < n; i++) {
+        if (outputPrimeNumber(i)) {
+            primeNumbers.push(i)
+        }
+    }
+    return primeNumbers[n - 1];
+}
+
+console.time('Simplified Prime Number Calculation')
+console.log(findNthPrimeNumberViaVariableReassignment(10001))
+console.timeEnd('Simplified Prime Number Calculation')
+// 104743 - answer
+// Calculation: 1878.348ms
+// Took slightly longer than attempt 1 that also uses array
+// Am I consfusing algorithmic complexity with javascript complexity
+// Both will impact the amount of time to complete the computation
+
+// Attempt 4:
 // Idea to attempt a recursive function rather than for loops?

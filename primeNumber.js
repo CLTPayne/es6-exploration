@@ -2,6 +2,8 @@
 // Find the 10,000th prime number 
 // Based on https://www.hackerrank.com/contests/projecteuler/challenges/euler007/problem
 
+// Note - the times were taken running these functions in node v10.8.0
+
 // Attempt 1: 
 // Most basic idea (and trying to remember what a prime number is!)
 const primeNumber = (number) => {
@@ -15,19 +17,19 @@ const primeNumber = (number) => {
 
 // console.log(primeNumber(540))
 
-// const findNthPrimeNumber = (n) => {
-//     const primeNumbers = []
-//     for (let i = 2; primeNumbers.length < n; i++) {
-//         if (primeNumber(i) === `${i} is prime`) {
-//             primeNumbers.push(i)
-//         }
-//     }
-//     return primeNumbers[n - 1];
-// }
+const findNthPrimeNumberViaArray = n => {
+    const primeNumbers = []
+    for (let i = 2; primeNumbers.length < n; i++) {
+        if (primeNumber(i) === `${i} is prime`) {
+            primeNumbers.push(i)
+        }
+    }
+    return primeNumbers[n - 1];
+}
 
-// console.time('Calculation')
-// console.log(findNthPrimeNumber(10001))
-// console.timeEnd('Calculation')
+console.time('Array Calculation')
+console.log(findNthPrimeNumberViaArray(10001))
+console.timeEnd('Array Calculation')
 // I thought this would be bad, but it works at least 
 // Using node to time the process (as a measure of the algorithm's complexity)
 // 104743 - answer
@@ -35,7 +37,7 @@ const primeNumber = (number) => {
 
 // Attempt 2:
 // Idea to not hold 1001 numbers (tonnes of bytes) in memory
-const findNthPrimeNumber = (n) => {
+const findNthPrimeNumberViaVariableReassignment = n => {
     let primeNumberCounter = 0
     let nthPrimeNumber = null
     for (let i = 2; primeNumberCounter < n; i++) {
@@ -47,10 +49,13 @@ const findNthPrimeNumber = (n) => {
     return nthPrimeNumber;
 }
 
-console.time('Calculation')
-console.log(findNthPrimeNumber(10001))
-console.timeEnd('Calculation')
+console.time('Variable Reassignment Calculation')
+console.log(findNthPrimeNumberViaVariableReassignment(10001))
+console.timeEnd('Variable Reassignment Calculation')
 // 104743 - answer
 // Calculation: 1989.874ms 
 // I thought that this would be quicker as it doesn't have to keep track of the whole array! 
 // Just reasign the slot in memory. Is that not how memory works. 
+
+// Attempt 3:
+// Idea to attempt a recursive function rather than for loops?

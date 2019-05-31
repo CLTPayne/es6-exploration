@@ -27,9 +27,9 @@ const findNthPrimeNumberViaArray = n => {
     return primeNumbers[n - 1];
 }
 
-console.time('Array Calculation')
-console.log(findNthPrimeNumberViaArray(10001))
-console.timeEnd('Array Calculation')
+// console.time('Array Calculation')
+// console.log(findNthPrimeNumberViaArray(10001))
+// console.timeEnd('Array Calculation')
 // I thought this would be bad, but it works at least 
 // Using node to time the process (as a measure of the algorithm's complexity)
 // 104743 - answer
@@ -49,9 +49,9 @@ const findNthPrimeNumberViaVariableReassignment = n => {
     return nthPrimeNumber;
 }
 
-console.time('Variable Reassignment Calculation')
-console.log(findNthPrimeNumberViaVariableReassignment(10001))
-console.timeEnd('Variable Reassignment Calculation')
+// console.time('Variable Reassignment Calculation')
+// console.log(findNthPrimeNumberViaVariableReassignment(10001))
+// console.timeEnd('Variable Reassignment Calculation')
 // 104743 - answer
 // Calculation: 1989.874ms 
 // I thought that this would be quicker as it doesn't have to keep track of the whole array! 
@@ -80,14 +80,30 @@ const findNthPrimeNumberViaSimplifiedPrimeNumberFunction = n => {
     return primeNumbers[n - 1];
 }
 
-console.time('Simplified Prime Number Calculation')
-console.log(findNthPrimeNumberViaVariableReassignment(10001))
-console.timeEnd('Simplified Prime Number Calculation')
+// console.time('Simplified Prime Number Calculation')
+// console.log(findNthPrimeNumberViaVariableReassignment(10001))
+// console.timeEnd('Simplified Prime Number Calculation')
 // 104743 - answer
 // Calculation: 1878.348ms
 // Took slightly longer than attempt 1 that also uses array
 // Am I consfusing algorithmic complexity with javascript complexity
 // Both will impact the amount of time to complete the computation
+
+// Attempt 3:
+// Realising that there are no even prime numbers other than 2!
+const findNthPrimeFromOddNumbers = n => {
+    const primeNumbers = [2]
+    for (let i = 3; primeNumbers.length < n; i+=2) {
+        if (outputPrimeNumber(i)) {
+            primeNumbers.push(i)
+        }
+    }
+    return primeNumbers[n - 1];
+}
+
+console.time('Odd Numbers Prime Calculation')
+console.log(findNthPrimeFromOddNumbers(10001))
+console.timeEnd('Odd Numbers Prime Calculation')
 
 // Attempt 4:
 // Idea to attempt a recursive function rather than for loops?

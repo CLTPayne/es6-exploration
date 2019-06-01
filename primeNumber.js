@@ -104,6 +104,10 @@ const findNthPrimeFromOddNumbers = n => {
 console.time('Odd Numbers Prime Calculation')
 console.log(findNthPrimeFromOddNumbers(10001))
 console.timeEnd('Odd Numbers Prime Calculation')
+// 104743 - answer
+// Odd Numbers Prime Calculation: 1752.769ms
+// Little bit quicker that first, most naive attempt but not much
+// Surprised as outputPrimeNumber() is literally called half as many times
 
 // Attempt 4:
 // Idea to attempt a recursive function rather than for loops?

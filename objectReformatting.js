@@ -61,5 +61,35 @@ const refactorGroupPeopleByProfession = people => {
         return grouped;
     }, {})
 }
+// console.log(refactorGroupPeopleByProfession(input))
 
-console.log(refactorGroupPeopleByProfession(input))
+// const reducePersonByProfession = input => (
+//     input
+//        .reduce((acc, { name: n, profession: p }) => ({ ...acc, [p]: [...acc[p], n] })
+//        , input.reduce((acc, {profession}) => ({ ...acc, [profession]:[] }), {}))
+//   );
+// console.log(reducePersonByProfession(input))
+
+// the inital value for the first reduce is the output of the second reduce
+// const groupedPersonByProfession = input => (
+//     input
+//         .reduce((acc, { name: n, profession: p }) => {
+//             return { ...acc, [p]: [...acc[p], n] }
+//         }, 
+//             input.reduce((acc, {profession}) => {
+//                 return { ...acc, [profession]: [] }
+//             }, {}))
+// )
+
+const groupedPersonByProfession = people => {
+    const intialValue = people.reduce((acc, { profession }) => {
+        return { ...acc, [profession]: [] }
+    }, {})
+    // console.log(intialValue) // { Actor: [], 'Software Engineer': [] }
+    // spread operator in object literals over rides the prevoius value for a property if the same property is present                                                                                                                                                                                                                                                                                                                                                                
+    return people.reduce((acc, { name, profession }) => {
+        return { ...acc, [profession]:  [...acc[profession], name]}
+    }, intialValue)
+} 
+
+console.log(groupedPersonByProfession(input))

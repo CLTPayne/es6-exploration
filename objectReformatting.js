@@ -82,11 +82,14 @@ const refactorGroupPeopleByProfession = people => {
 // )
 
 const groupedPersonByProfession = people => {
+    // second param of reduce is a destructuring of the profession out of the current value
     const intialValue = people.reduce((acc, { profession }) => {
         return { ...acc, [profession]: [] }
     }, {})
     // console.log(intialValue) // { Actor: [], 'Software Engineer': [] }
-    // spread operator in object literals over rides the prevoius value for a property if the same property is present                                                                                                                                                                                                                                                                                                                                                                
+    // second param of reduce is a destructuring of the name and profession out of the current value
+    // spread operator in object literals over rides the prevoius value for a property if the same property is present     
+    // acc starts of as the initalValue you pass it, then single return value of each iteration through the people array                                                                                                                                                                                                                                                                                                                                                           
     return people.reduce((acc, { name, profession }) => {
         return { ...acc, [profession]:  [...acc[profession], name]}
     }, intialValue)

@@ -63,6 +63,9 @@ const refactorGroupPeopleByProfession = people => {
 }
 // console.log(refactorGroupPeopleByProfession(input))
 
+// Reduce processes an array one element at a time (much like map) but instead of returning 
+// a new array it boils all the elements in the array down to one value.
+
 // const reducePersonByProfession = input => (
 //     input
 //        .reduce((acc, { name: n, profession: p }) => ({ ...acc, [p]: [...acc[p], n] })
@@ -91,6 +94,8 @@ const groupedPersonByProfession = people => {
     // spread operator in object literals over rides the prevoius value for a property if the same property is present     
     // acc starts of as the initalValue you pass it, then single return value of each iteration through the people array                                                                                                                                                                                                                                                                                                                                                           
     return people.reduce((acc, { name, profession }) => {
+        // [...acc[professino], name] speads in the empty array initially, or the populated array from the previous iteration
+        // and adds a comma separation to the name value of the current element being processed. 
         return { ...acc, [profession]:  [...acc[profession], name]}
     }, intialValue)
 } 

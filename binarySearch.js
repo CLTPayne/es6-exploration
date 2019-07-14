@@ -16,6 +16,9 @@ const findItem = (sortedArray, item, start = 0, end = sortedArray.length) => {
     if (sortedArray[middle] === item) {
         return middle;
     }
+    if (start === middle) {
+        return `${item} not found`
+    }
     if (item < sortedArray[middle]) {
         return findItem(sortedArray, item, start, middle - 1);
     }
@@ -25,4 +28,4 @@ const findItem = (sortedArray, item, start = 0, end = sortedArray.length) => {
 }
 
 const array = [1, 7, 8, 9, 11, 12, 20, 200]
-console.log(findItem(array, 200))
+console.log(findItem(array, -2))
